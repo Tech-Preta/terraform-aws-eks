@@ -55,19 +55,19 @@ module "eks" {
 
   cluster_addons = {
     coredns = {
-      most_recent = true
+      most_recent       = true
       resolve_conflicts = "OVERWRITE"
     }
     kube-proxy = {
-      most_recent = true
+      most_recent       = true
       resolve_conflicts = "OVERWRITE"
     }
     vpc-cni = {
-      most_recent = true
+      most_recent       = true
       resolve_conflicts = "OVERWRITE"
     }
     aws-ebs-csi-driver = {
-      most_recent = true
+      most_recent       = true
       resolve_conflicts = "OVERWRITE"
     }
   }
@@ -78,9 +78,3 @@ module "eks" {
   }
 }
 
-resource "local_file" "kubeconfig" {
-  content  = module.eks.kubeconfig
-  filename = "${path.module}/kubeconfig_${var.cluster_name}"
-
-  depends_on = [module.eks]
-}

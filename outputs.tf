@@ -17,9 +17,3 @@ output "region" {
   description = "AWS region"
   value       = var.region
 }
-
-output "kubeconfig" {
-  description = "Kubeconfig for the EKS cluster"
-  value       = module.eks.kubeconfig
-  sensitive   = true
-}
